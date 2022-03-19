@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+DOG LIST!!!!!!!!
+{% endblock %}
+
+
+{% block content %}
+    <h1>Our Dogs:</h1>
+    {% for dog in dogs %}
+    <h3>Name: {{dog.name}}</h3>
+    <h3>Age: {{dog.age}}</h3>
+    <h3>Gender: {{dog.gender}}</h3>
+    {% endfor %}
+{% endblock %}
