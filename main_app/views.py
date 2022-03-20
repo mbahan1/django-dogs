@@ -17,16 +17,19 @@ class About(TemplateView):
     # def get(self, request):
     #     return HttpResponse("Dogs About")
 class Dog:
-    def __init__(self, name, age, gender):
+    def __init__(self, name, age, gender, breed):
         self.name = name
         self.age = age
         self.gender = gender
+        self.breed = breed
 
 dogs = [
-    Dog("Mau", 5, "Female"),
-    Dog("Garfield", 43, "Male"),
-    Dog("Meowth", 25, "Male"),
-    Dog("Salem", 500, "Male"),
+    Dog("Loki", 8, "Male", "GSD mutt"),
+    Dog("Han Solo", 8, "Male", "Idaho Fuzzy"),
+    Dog("Titus", 14, "Male", "Australian Shepard"),
+    Dog("Zephyr", 4, "Male", "Border Collie mutt"),
+    Dog("Zoe", 14, "Female", "Labrador Retriever"),
+    Dog("Penny", 9, "Female", "Lab/GSD mutt"),
 ]
 
 class DogList(TemplateView):
