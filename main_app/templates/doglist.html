@@ -26,6 +26,9 @@ DOG LIST!!!!!!!!
     <h3>Age: {{dog.age}}</h3>
     <h3>Gender: {{dog.gender}}</h3>
     <h3>Breed: {{dog.breed}}</h3>
+    <p>Adopted by: 
+        <a href="/user/{{dog.user.username}}">{{ dog.user.username }}</a>
+    </p>
     <br>
     {% endfor %}
 {% endblock %}

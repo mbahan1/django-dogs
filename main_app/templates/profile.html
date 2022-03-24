@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Django Dogs Profile
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{ username }}'s Dog Collection</h1>
+    {% for dog in dogs %}
+        <a href="/dogs/{{ dog.id }}">
+            <h3>{{ dog.name }}</h3>
+        </a>
+    {% endfor %}
+
+{% endblock %}
