@@ -12,7 +12,14 @@
     <p>Adopted by: 
         <a href="/user/{{ dog.user.username }}">{{ dog.user.username }}</a>
     </p>
+    <p>Toys Owned:</p>
+    {% for dogtoy in dog.dogtoys.all %}
+        <div>{{dogtoy.name}}</div>
+    {% empty %}
+        <div>{{dog.name}} Has No Toys 😢</div>
+    {% endfor %}
 </div>
+
 <div>
     <a href="{% url 'dog_update' dog.pk %}">Update</a>
     <a href="{% url 'dog_delete' dog.pk %}">Delete</a>
