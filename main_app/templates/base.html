@@ -11,19 +11,24 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-    <body>
-        <nav>
-            <a href="/admin">Admin</a>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/dogs">Dogs</a>
-            <a href="{% url 'dogtoys_index' %}"">Dog Toys</a>
-            <a href="{% url 'dog_create' %}">Add a Dog</a>
-            <a href="{% url 'dogtoys_create' %}">Add a Dog Toy</a>
-        </nav>
-        {% block content %}
-    
-        
-        {% endblock %}
+    <nav>
+        <a href="/admin">Admin</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/dogs">Dogs</a>
+        <a href="{% url 'dogtoys_index' %}"">Dog Toys</a>
+        <a href="{% url 'dog_create' %}">Add a Dog</a>
+        <a href="{% url 'dogtoys_create' %}">Add a Dog Toy</a>
+        <form id="search_box">
+            <div>
+                <!-- this seacrches for dog name -->
+                <input type="text" name="name" placeholder="dog name"/>
+                <input type="submit" value="Search"/>
+            </div>
+        </form>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
 </body>
 </html>

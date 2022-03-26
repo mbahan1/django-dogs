@@ -1,34 +1,24 @@
 {% extends 'base.html' %}
 
 {% block title %}
-DOG LIST!!!!!!!!
+    Django Dogs | Dogs
 {% endblock %}
 
 {% block content %}
-<form>
-    <div>
-        <!-- this seacrches for dog name -->
-        <input type="text" name="name" placeholder="name"/>
-        <input type="submit" value="Search"/>
-    </div>
-    <!-- this a tag will redirect back to catlist without a query param! be sure to use the "name" you called the route in your main_app/urls.py -->
-    <a href="{% url 'dog_list' %}">Clear Search</a>
-</form>
-
-<a href="{% url 'dog_create' %}">Add Dog</a>
-
-<h1>{{header}}</h1>
+<div class="container" id="dog_list">
+    <h1>The Dogs!</h1>
     {% for dog in dogs %}
-    <img src="{{dog.img}}" alt="{{dog.name}}" style="max-width: 200px">
-    <a href="{% url 'dog_detail' dog.pk %}">
-        <h3>Name: {{dog.name}}</h3>
-    </a>
-    <h3>Age: {{dog.age}}</h3>
-    <h3>Gender: {{dog.gender}}</h3>
-    <h3>Breed: {{dog.breed}}</h3>
-    <p>Adopted by: 
-        <a href="/user/{{dog.user.username}}">{{ dog.user.username }}</a>
-    </p>
-    <br>
+        <img src="{{dog.img}}" alt="{{dog.name}}" style="max-width: 200px">
+        <a href="{% url 'dog_detail' dog.pk %}">
+            <h3>Name: {{dog.name}}</h3>
+        </a>
+        <h3>Age: {{dog.age}}</h3>
+        <h3>Gender: {{dog.gender}}</h3>
+        <h3>Breed: {{dog.breed}}</h3>
+        <p>Adopted by: 
+            <a href="/user/{{dog.user.username}}">{{ dog.user.username }}</a>
+        </p>
+        <br>
     {% endfor %}
+</div>
 {% endblock %}
