@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Dog Toy List</h1>
-
-    {% for dogtoy in dogtoys %}
-        <div>
-            <a href="{% url 'dogtoys_show' dogtoy.id %}">
-                <div class="card-content">
-                    <span>{{ dogtoy.name }}</span>
-                    <p>Color: {{ dogtoy.color }}</p>
-                </div>
-            </a>
-        </div>
-        <hr/>
-    {% endfor %}
-
+<div class="container">
+    <h1>Dog Toy List</h1>
+        {% for dogtoy in dogtoys %}
+            <div>
+                <a href="{% url 'dogtoys_show' dogtoy.id %}">
+                    <div class="card-content">
+                        <span>{{ dogtoy.name }}</span>
+                        <p>Color: {{ dogtoy.color }}</p>
+                    </div>
+                </a>
+            </div>
+            <hr/>
+        {% endfor %}
+</div>
 {% endblock %}

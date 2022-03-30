@@ -11,7 +11,7 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-    <nav>
+    <!-- <nav>
         <a href="/admin">Admin</a>
         <a href="/">Home</a>
         <a href="/about">About</a>
@@ -22,8 +22,42 @@
         <form id="search_box">
             <div>
                 <!-- this seacrches for dog name -->
-                <input type="text" name="name" placeholder="dog name"/>
-                <input type="submit" value="Search"/>
+                <!-- <input type="text" name="name" placeholder="dog name"/> -->
+                <!-- <input type="submit" value="Search"/> -->
+            <!-- </div> -->
+        <!-- </form> -->
+    <!-- </nav> -->
+
+    <nav>
+        {% if user.is_authenticated %}
+            <span><a href="{% url 'profile' user.username %}">Hello, {{ user.username }}!</a></span>
+                <span> | </span>
+            <span><a href="{% url 'logout' %}">Logout</a></span>
+                <span> | </span>
+        {% else %}
+            <span><a href="{% url 'login' %}">Login</a></span>
+                <span> | </span>
+            <span><a href="{% url 'signup' %}">SignUp</a></span>
+        {% endif %}
+        <a href="/admin">Admin</a>
+            <span> | </span>
+        <a href="/">Home</a>
+            <span> | </span>
+        <a href="/about">About</a>
+            <span> | </span>
+        <a href="/dogs">Dogs</a>
+            <span> | </span>
+        <a href="/dogtoys">Dog Toys</a>
+            <span> | </span>
+        <a href="{% url 'dog_create' %}">Add a Dog</a>
+            <span> | </span>
+        <a href="{% url 'dogtoys_create' %}">Add a DogToy</a>
+            <span> | </span>
+        <form id="search_box">
+            <div>
+                <!-- this seacrches for dog name -->
+                <input id="search_bar" type="text" name="name" placeholder="dog name"/>
+                <input id="search_sub" type="submit" value="Search"/>
             </div>
         </form>
     </nav>

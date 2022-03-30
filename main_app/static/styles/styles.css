@@ -38,7 +38,7 @@ nav  a, a:hover, a:focus, a:active {
 #search_box {
     margin-left: auto;
 }
-input[type=text] {
+#search_bar {
     background-color: lightgray;
     color: darkgreen;
     border: 2px solid lightgray;
@@ -46,12 +46,11 @@ input[type=text] {
     padding: 5px;
     text-align: center;
 }
-input[type=submit] {
+#search_sub {
     border: 2px solid lightgray;
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
     background-color:darkgrey;
     color: darkgreen;
-    size-adjust: bigger;
-}
+} */

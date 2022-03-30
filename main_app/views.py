@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect # This is our respons
 from django.urls import reverse
 from .models import Dog, DogToy
 from django.contrib.auth.models import User
-#auth additions
+# Auth imports
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
@@ -109,8 +109,9 @@ class DogToyDelete(DeleteView):
     template_name = "dogtoy_confirm_delete.html"
     success_url = '/dogtoys'
 
+# Login, Logout and Signup
 def login_view(request):
-    #if POST, then authenticate the user (submitting username and password)
+    # if POST, then authenticate the user (submitting the username and password)
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
@@ -122,12 +123,12 @@ def login_view(request):
                     login(request, user)
                     return HttpResponseRedirect('/user/'+u)
                 else:
-                    print('The account has been disabled.')
-                    #could redirect somewhere else...
+                    print('The account has been disabled')
+                    # Feel free to redirect them somewhere
             else:
-                print('The user name and/or password is incorrect')
+                print('The username and/or password is incorrect')
     else:
-        #user is going to login page
+        # user is going to the login page
         form = AuthenticationForm()
         return render(request, 'login.html', {'form': form})
 
@@ -147,5 +148,4 @@ def signup_view(request):
             HttpResponse('<h1>Try again...</h1>')
     else:
         form = UserCreationForm()
-        return render(request, 'signup.html', {'form': form})
-        
+        return render(request, 'signup.html', {'form': form}) 
